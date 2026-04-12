@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from sevo_blog import models
-
+from sevo_core.admin import BaseUserAdmin
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -29,7 +29,7 @@ class TagAdmin(admin.ModelAdmin):
     ]
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(BaseUserAdmin):
     list_display = [
         "id",
         "user",

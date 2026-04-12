@@ -1,0 +1,17 @@
+add bootstrap via npm to the project as sourcefile source with sass
+
+
+
+user
+-------
+
+build a functionallity in sevo_core admin.py that:
+	- the user is not available in the backend
+	- the use will be automaticly choosed by the logged in user
+	- except the admin user can change the user in the backend
+	
+build that only the logged in user can see the posts he created.
+do this in sevo_core admin.py BaseUserAdmin class.
+
+
+	

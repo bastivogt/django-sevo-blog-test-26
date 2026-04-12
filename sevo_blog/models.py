@@ -37,8 +37,8 @@ class Tag(core_models.TimeStampMixin):
 class Post(core_models.TimeStampMixin, core_models.BaseUserMixin):
     title = models.CharField(max_length=255, verbose_name=_("Title"))
 
-    keywords = models.CharField(max_length=255, verbose_name=_("Keywords"))
-    description = models.CharField(max_length=255, verbose_name=_("Description"))   
+    keywords = models.CharField(max_length=255, blank=True, null=True,verbose_name=_("Keywords"))
+    description = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Description"))   
 
 
 
