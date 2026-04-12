@@ -2,4 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the blog index.")
+    return render(request, "sevo_blog/index.html", {
+        "title": "Welcome to Sevo's Blog",
+    })
