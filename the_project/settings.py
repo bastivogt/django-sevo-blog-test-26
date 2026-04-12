@@ -86,8 +86,8 @@ DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.mysql",
 #         "NAME": "db-django-sevo-blog-26",
-#         "USER": "root",
-#         "PASSWORD": "Function7",
+#         "USER": "",
+#         "PASSWORD": "",
 #         "HOST": "127.0.0.1",
 #         "PORT": "3306",
 #     }
