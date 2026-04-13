@@ -18,8 +18,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+#from the_project import settings
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+admin.site.site_header = "Sevo Blog admin"
+admin.site.site_title = "Sevo Blog admin"
+admin.site.index_title = "Sevo Blog administration",
+
 urlpatterns = [
     path("admin/", admin.site.urls),
 
     path("blog/", include("sevo_blog.urls")),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )
