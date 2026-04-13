@@ -125,6 +125,8 @@ class PostAdmin(BaseUserAdmin):
 
 
 
+
+
 admin.site.register(models.Post, PostAdmin)
 admin.site.register(models.PostImage, PostImageAdmin)
 admin.site.register(models.Category, CategoryAdmin)

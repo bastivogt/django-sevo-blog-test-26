@@ -13,5 +13,7 @@ build a functionallity in sevo_core admin.py that:
 build that only the logged in user can see the posts he created.
 do this in sevo_core admin.py BaseUserAdmin class.
 
+show only the filter user in the admin if a admin user is logged in, do this in the sevo_blog admin.py
+
 
 	
