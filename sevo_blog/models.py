@@ -102,9 +102,17 @@ class Post(core_models.TimeStampMixin, core_models.BaseUserMixin):
     is_published = models.BooleanField(default=False, verbose_name=_("Is Published"))   
     
 
-    @admin.display(description=_("Tags"))
+    #@admin.display(description=_("Tags"))
     def get_tags_as_string(self):
         return ", ".join([tag.name for tag in self.tags.all()]) 
+    get_tags_as_string.short_description = _("Tags")
+    
+
+    def get_short_content(self, length=100):
+        if len(self.content) > length:
+            return self.content[:length] + "..."
+        return self.content
+    get_short_content.short_description = _("Short Content")    
     
 
     def get_image_url(self):
@@ -122,7 +130,15 @@ class Post(core_models.TimeStampMixin, core_models.BaseUserMixin):
     get_image_tag.short_description = _("Image Preview")
     get_image_tag.allow_tags = True 
 
+    def get_user_name(self):
+        if self.user:
+            return self.user.username
+        return ""
+    get_user_name.short_description = _("Author")   
+
     
+
+
 
     def __str__(self):
         return self.title   
