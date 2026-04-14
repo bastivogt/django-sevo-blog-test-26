@@ -87,7 +87,8 @@ class PostAdmin(BaseUserAdmin):
     list_display_links = [
         "id",
         "user",
-        "title"
+        "title",
+        "get_image_tag",
     ]
 
     search_fields = [
