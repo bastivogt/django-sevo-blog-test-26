@@ -72,6 +72,8 @@ class PostImage(core_models.TimeStampMixin):
     get_image_url.allow_tags = True 
 
 
+
+
     class Meta:
         verbose_name = _("Post Image")
         verbose_name_plural = _("Post Images")
@@ -94,12 +96,20 @@ class Post(core_models.TimeStampMixin, core_models.BaseUserMixin):
 
 
     content = models.TextField(verbose_name=_("Content"))
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Category"))
+
+    
+    #category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Category"))
+    categories = models.ManyToManyField(Category, blank=True, verbose_name=_("Categories"))
     tags = models.ManyToManyField(Tag, blank=True, verbose_name=_("Tags"))      
     is_featured = models.BooleanField(default=False, verbose_name=_("Is Featured")) 
     alow_comments = models.BooleanField(default=True, verbose_name=_("Allow Comments")) 
     show_coments = models.BooleanField(default=True, verbose_name=_("Show Comments"))   
     is_published = models.BooleanField(default=False, verbose_name=_("Is Published"))   
+    
+
+    def get_categories_as_string(self):
+        return ", ".join([category.name for category in self.categories.all()])
+    get_categories_as_string.short_description = _("Categories")    
     
 
     #@admin.display(description=_("Tags"))
@@ -136,7 +146,10 @@ class Post(core_models.TimeStampMixin, core_models.BaseUserMixin):
         return ""
     get_user_name.short_description = _("Author")   
 
-    
+    def get_test(self):
+        return "test"
+    get_test.short_description = _("Test")
+    get_test.allow_tags = True
 
 
 

@@ -11,11 +11,11 @@ class BaseUserAdmin(admin.ModelAdmin):
     user_field_name = "user"
 
     def get_form(self, request, obj=None, **kwargs):
-        if not request.user.is_superuser:
-            exclude = list(kwargs.get("exclude", []))
-            if self.user_field_name not in exclude:
-                exclude.append(self.user_field_name)
-            kwargs["exclude"] = exclude
+        # if not request.user.is_superuser:
+        #     exclude = list(kwargs.get("exclude", []))
+        #     if self.user_field_name not in exclude:
+        #         exclude.append(self.user_field_name)
+        #     kwargs["exclude"] = exclude
 
         return super().get_form(request, obj, **kwargs)
 

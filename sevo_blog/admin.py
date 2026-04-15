@@ -52,6 +52,7 @@ class PostImageAdmin(admin.ModelAdmin):
 
     readonly_fields = [
         "get_image_tag_link",
+        "get_image_tag",
     ]
 
 
@@ -60,7 +61,8 @@ class PostAdmin(BaseUserAdmin):
         "user",
         "title",
         "content",
-        "category",
+        #"category",
+        "categories",
         "tags",
         "image",
         "get_image_tag",
@@ -72,10 +74,12 @@ class PostAdmin(BaseUserAdmin):
         "is_published",
     ]   
     list_display = [
+        "get_test",
         "id",
         "title",
         "get_image_tag",
-        "category",
+        #"category",
+        "get_categories_as_string",
         "get_tags_as_string",
         "is_featured",
         "is_published",
@@ -100,7 +104,8 @@ class PostAdmin(BaseUserAdmin):
         "is_published", 
         "created_at",
         "updated_at",
-        "category",
+        #"category",
+        "categories",
         "tags",
         "user",
         "is_featured",
@@ -115,6 +120,7 @@ class PostAdmin(BaseUserAdmin):
 
     readonly_fields = [
         "get_image_tag",
+        #"get_test",
     ]
 
     raw_id_fields = [
